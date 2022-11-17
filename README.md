@@ -1,59 +1,24 @@
-## users テーブル
+# README
 
-| Column             |Type     | Options     |
-|--------------------|---------|-------------|
-| nickname           | string  | null: false |
-| email              | string  | null: false |
-| password           | string  | null: false |
-| family_name        | string  | null: false |
-| first_name	        | string	 | null: false |
-| family_name_kana	  | string	 | null: false |
-| first_name_kana	   | string	 | null: false |
-| birth_day	         | date	   | null: false | 
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-- has_many :products
-- has_many :purchases
+Things you may want to cover:
 
-### productテーブル
+* Ruby version
 
-| Column             |Type       | Options                        |
-|--------------------|-----------|--------------------------------|
-| name	              |string	    |null: false                     |
-| image	             |string	    |null: false                     |
-| explanation	       |text	      |null: false                     |
-|category_id	        |integer	   |null: false                     |
-|derively_fee_id	    |integer	   |null: false                     |
-|status_id	          |integer	   |null: false                     |
-|prefecture_id	      |integer	   |null: false                     |
-|day_id              |integer    |null: false                     |
-|price               |integer	   |null: false                     |
-|user	               |references |null: false, foreign_key: true  |
+* System dependencies
 
-- belongs_to :user
-- has_one :purchase
+* Configuration
 
-### purchases テーブル
+* Database creation
 
-|Column	   |Type	      | Options                        |
-|----------|-----------|--------------------------------|
-|user	     |references	| null: false, foreign_key: true |
-|product	  |references | null: false, foreign_key: true |
+* Database initialization
 
-- belongs_to :user
-- belongs_to :product
-- has_one :address
+* How to run the test suite
 
-### addresses テーブル 
+* Services (job queues, cache servers, search engines, etc.)
 
-|Column	       | Type	       |  Options                        |
-|--------------|-------------|---------------------------------|
-|post_code	    | string	     | null: false                     |
-|prefecture_id |	integer	    | null: false                     |
-|municipality	 | string	     | null: false                     |
-|address	      | string	     | null: false                     |
-|building_name |	string      |                                 |	
-|phone_number  |	string	     | null: false                     |
-|user	         | references	 | null: false, foreign_key: true  |
-|product       |	references	 | null: false, foreign_key: true  |
+* Deployment instructions
 
-- belongs_to :purchase
+* ...
