@@ -57,3 +57,4 @@
 |product       |	references	 | null: false, foreign_key: true  |
 
 - belongs_to :purchase
+
