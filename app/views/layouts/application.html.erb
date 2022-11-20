@@ -9,20 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-   <body>
-    <header class="header">
-      <div class="header__bar row">
-        <h1 class="grid-6"><a href="/">Furima</a></h1>
-        <div class="user_nav grid-6">
-          <a class="post" href="/furimas/new">投稿する</a>
-        </div>
-      </div>
-    </header>
+  <body>
     <%= yield %>
-    <footer>
-      <p>
-        Copyright Furima 2022.
-      </p>
-    </footer>
   </body>
 </html>
