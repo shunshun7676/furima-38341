@@ -14,6 +14,7 @@ RSpec.describe User, type: :model do
     it 'nicknameがないと登録できない' do
       @user.nickname = nil
       @user.valid?
+      binding.pry
       expect(@user.errors.full_messages).to include("Nickname can't be blank")
     end
 
