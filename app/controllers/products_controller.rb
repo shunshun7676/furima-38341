@@ -3,19 +3,19 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    #@products = Product.all.order 
+    products = Product.all.order 
   end
 
   def new
-    @product = Product.new
+   #@product = Product.new
   end
 
   def create
-    @product = Product.new(product_params)
-    if @product.save
-      redirect_to root_path
+    #@product = Product.new(product_params)
+    #if @product.save
+      #redirect_to root_path
     else
-      render :new
+      #render :new
     end
   end
 
@@ -25,21 +25,21 @@ class ProductsController < ApplicationController
   def edit
   end
 
-  def update
-    if @product.update(product_params)
-      redirect_to product_path(@product.id)
+  def #update
+    if# @product.update(product_params)
+      #edirect_to product_path(@product.id)
     else
-      render :edit
+     # render :edit
     end
   end
 
-  def destroy
-    if @product.destroy
-      redirect_to root_path
-    else
-      redirect :show
-    end
-  end
+  #def destroy
+   # if @product.destroy
+     # redirect_to root_path
+    #else
+     # redirect :show
+    #end
+  #end
 
   private
 
