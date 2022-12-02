@@ -1,37 +1,37 @@
 class ProductsController < ApplicationController
-  before_action :require_login, only: :new, alert: 'You need to sign in or sign up before continuing.'
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  #before_action :require_login, only: :new, alert: 'You need to sign in or sign up before continuing.'
+  #before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    products = Product.all.order 
+   # products = Product.all.order 
   end
 
-  def new
+  #def new
    #@product = Product.new
-  end
+  #end
 
-  def create
+  #ef create
     #@product = Product.new(product_params)
     #if @product.save
       #redirect_to root_path
-    else
+   # else
       #render :new
-    end
-  end
+    #end
+  #end
 
-  def show
-  end
+  #def show
+  #end
 
-  def edit
-  end
+ #def edit
+  #end
 
-  def #update
-    if# @product.update(product_params)
+  #def #update
+   # if# @product.update(product_params)
       #edirect_to product_path(@product.id)
-    else
+   # else
      # render :edit
-    end
-  end
+   # end
+  #end
 
   #def destroy
    # if @product.destroy
@@ -41,17 +41,17 @@ class ProductsController < ApplicationController
     #end
   #end
 
-  private
+#  private
 
-  def require_login
-    redirect_to user_session_path, alert: 'You need to sign in or sign up before continuing.' unless user_signed_in?
-  end
+ # def require_login
+  #  redirect_to user_session_path, alert: 'You need to sign in or sign up before continuing.' unless user_signed_in?
+  #end
 
-  def product_params
-    params.require(:product).permit(:image, :name, :explanation, :category_id, :derively_fee_id, :status_id, :prefecture_id, :day_id, :price).merge(user_id: current_user.id)
-  end
+  #def product_params
+  #  params.require(:product).permit(:image, :name, :explanation, :category_id, :derively_fee_id, :status_id, :prefecture_id, :day_id, :price).merge(user_id: current_user.id)
+  #end
 
-  def set_product
-    @product = Product.find(params[:id])
-  end
-end
+  #def set_product
+   # @product = Product.find(params[:id])
+  #end
+#end
