@@ -9,7 +9,7 @@
 | first_name	                 | string	 | null: false                   |
 | family_name_kana	           | string	 | null: false                   |
 | first_name_kana	            | string	 | null: false                   |
-| birth_day	                  | date	   | null: false                   | 
+| birthday	                  | date	   | null: false                   | 
 
 - has_many :products
 - has_many :purchases

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root to : 'furimas#index'
-  resources :furimas,only: [:index] do
-end
-end
+  devise_for :users
+  root to: "products#index" 
+  resources :products do
+   #resources :purchases, only: [:index, :create]
+  end
+ end
