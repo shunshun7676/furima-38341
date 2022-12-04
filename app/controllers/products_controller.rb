@@ -47,8 +47,8 @@ class ProductsController < ApplicationController
   #  redirect_to user_session_path, alert: 'You need to sign in or sign up before continuing.' unless user_signed_in?
   #end
 
-  #def product_params
-  #  params.require(:product).permit(:image, :name, :explanation, :category_id, :derively_fee_id, :status_id, :prefecture_id, :day_id, :price).merge(user_id: current_user.id)
+  def product_params
+  params.require(:product).permit(:image, :name, :explanation, :category_id, :derively_fee_id, :status_id, :prefecture_id, :day_id, :price).merge(user_id: current_user.id)
   #end
 
   #def set_product
