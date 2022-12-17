@@ -19,7 +19,7 @@
 | Column             |Type       | Options                        |
 |--------------------|-----------|--------------------------------|
 | name	              |string	    |null: false                     |
-| explanation	       |text	      |null: false                     |
+|	explanation       |text	      |null: false                     |
 |category_id	        |integer	   |null: false                     |
 |derively_fee_id	    |integer	   |null: false                     |
 |status_id	          |integer	   |null: false                     |
