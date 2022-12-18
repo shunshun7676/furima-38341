@@ -37,9 +37,9 @@ RSpec.describe Product, type: :model do
 
     context '出品ができないとき' do
       it 'ユーザー登録している人でないと出品できない' do
-        @product.current_user_id = nil
+        @product.user= nil
         @product.valid?
-        expect(@product.errors.full_messages).to include('Current_User must exist', "User can't be blank")
+        expect(@product.errors.full_messages).to include('User must exist')
       end
       it '１枚画像がないと出品できない' do
         @product.image = nil
@@ -122,9 +122,9 @@ RSpec.describe Product, type: :model do
         expect(@product.errors.full_messages).to include('Price must be less than or equal to 9999999')
        end
        it '価格に半角数字以外が含まれている場合は出品できない' do
-        @product.price = Aあ
+        @product.price = "１０００"
         @product.valid?
-        expect(@product.errors.full_messages).to include('Price is invalid')
+        expect(@product.errors.full_messages).to include('Price is not a number')
       end
     end
   end
