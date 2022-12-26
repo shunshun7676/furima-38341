@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   # ログインしていないユーザーはログインページに促す
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update ]
   
   def index
    @products = Product.all.order('created_at DESC')
@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-  @product = Product.find(params[:id])
   end
 
   def edit
