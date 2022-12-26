@@ -15,8 +15,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    unless user_signed_in? &&
-      @product.user_id == current_user.id 
+    unless @product.user_id == current_user.id 
       redirect_to root_path
     end
   end
