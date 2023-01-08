@@ -57,7 +57,7 @@ RSpec.describe AddressPurchase, type: :model do
       it 'phone_number が英数混合では保存できないこと' do
         @address_purchase.phone_number = '0000000aaa'
         @address_purchase.valid?
-        expect(@address_purchase.errors.full_messages).to include("Phone number is not a number")
+        expect(@address_purchase.errors.full_messages).to include("Phone number is invalid")
       end
       it 'phone_numberは9桁以下の数値では登録できないこと' do
         @address_purchase.phone_number = '090123456'
@@ -67,7 +67,7 @@ RSpec.describe AddressPurchase, type: :model do
       it 'phone_numberは12桁以上の数値では登録できないこと' do
         @address_purchase.phone_number = '090123456789'
         @address_purchase.valid?  
-        expect(@address_purchase.errors.full_messages).to include('Phone number is invalid')
+        expect(@address_purchase.errors.full_messages).to include("Phone number is invalid")
       end
         it "token が空では登録できないこと" do
         @address_purchase.token = nil
