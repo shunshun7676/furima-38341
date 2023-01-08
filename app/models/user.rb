@@ -6,7 +6,6 @@ class User < ApplicationRecord
  
   has_many :products
   has_many :purchases
-  has_one :card, dependent: :destroy
 
   # ユーザー情報
   with_options presence: true do

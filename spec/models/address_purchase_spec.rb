@@ -9,7 +9,7 @@ RSpec.describe AddressPurchase, type: :model do
   end
 
   describe '商品購入情報の保存' do
-    context '商品購入情報の保存' do
+    context '購入できるとき' do
       it 'すべてのフォームの入力がされている' do
         expect(@address_purchase).to be_valid
       end
@@ -18,7 +18,6 @@ RSpec.describe AddressPurchase, type: :model do
       end
       it "建物名が空の場合でも保存できること" do
         @address_purchase.building_name = ''
-        @address_purchase.valid?
         expect(@address_purchase).to be_valid
       end
     end
@@ -34,10 +33,10 @@ RSpec.describe AddressPurchase, type: :model do
         @address_purchase.valid?
         expect(@address_purchase.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
       end
-      it 'prefecture_idが 1 では保存できないこと' do
-        @address_purchase.prefecture_id = 1
+      it 'prefecture_idが 0 では保存できないこと' do
+        @address_purchase.prefecture_id = 0
         @address_purchase.valid?
-        expect(@address_purchase.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@address_purchase.errors.full_messages).to include("Prefecture must be other than 0")
       end
       it 'municipality が空では保存できないこと' do
         @address_purchase.municipality = ''

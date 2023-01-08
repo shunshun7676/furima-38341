@@ -13,7 +13,7 @@ class AddressPurchase
    validates :token
  end
 
- with_options numericality: { other_than: 1 } do
+ with_options numericality: { other_than: 0 } do
    validates  :prefecture_id
  end
 
