@@ -3,9 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  #has_many :products
-  #has_many :purchases
+ 
+  has_many :products
+  has_many :purchases
+  has_one :card, dependent: :destroy
 
   # ユーザー情報
   with_options presence: true do

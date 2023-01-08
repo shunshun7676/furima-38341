@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   # ログインしていないユーザーはログインページに促す
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_product, only: [:show, :edit, :update,:destroy ]
-  
+  before_action :move_to_index, only: [:edit, :update, :destroy]
   def index
    @products = Product.all.order('created_at DESC')
   end
@@ -15,9 +15,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    unless @product.user_id == current_user.id 
-      redirect_to root_path
-    end
   end
 
   def update
@@ -54,4 +51,8 @@ def product_params
   def set_product
   @product = Product.find(params[:id])
   end
+
+  def move_to_index
+    redirect_to action: :index unless current_user.id == @product.user_id && @product.purchase.nil?
+end
 end
