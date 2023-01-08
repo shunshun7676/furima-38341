@@ -7,7 +7,7 @@ class AddressPurchase
    validates :prefecture_id
    validates :municipality
    validates :address
-   validates :phone_number, numericality: { only_integer: true }
+   validates :phone_number,numericality: { with: /\A\d{10,11}\z/, message: 'is invalid' }
    validates :user_id
    validates :product_id
    validates :token

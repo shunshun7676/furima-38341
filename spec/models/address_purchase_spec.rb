@@ -8,8 +8,8 @@ RSpec.describe AddressPurchase, type: :model do
     sleep (1)
   end
 
-  describe '購入できるとき' do
-    context '購入できるとき' do
+  describe '商品購入情報の保存' do
+    context '商品購入情報の保存' do
       it 'すべてのフォームの入力がされている' do
         expect(@address_purchase).to be_valid
       end
@@ -55,16 +55,21 @@ RSpec.describe AddressPurchase, type: :model do
         expect(@address_purchase.errors.full_messages).to include("Phone number can't be blank")
       end
       it 'phone_number が英数混合では保存できないこと' do
-        @address_purchase.phone_number = '００００００００aaa'
+        @address_purchase.phone_number = '0000000aaa'
         @address_purchase.valid?
         expect(@address_purchase.errors.full_messages).to include("Phone number is not a number")
       end
-      it 'phone_number が11桁以内の数値のみでなければ保存できないこと' do
-        @address_purchase.phone_number = '０００００００００００'
+      it 'phone_numberは9桁以下の数値では登録できないこと' do
+        @address_purchase.phone_number = '090123456'
         @address_purchase.valid?
-        expect(@address_purchase.errors.full_messages).to include("Phone number is not a number")
+        expect(@address_purchase.errors.full_messages).to include("Phone number is invalid")
       end
-      it "token が空では登録できないこと" do
+      it 'phone_numberは12桁以上の数値では登録できないこと' do
+        @address_purchase.phone_number = '090123456789'
+        @address_purchase.valid?  
+        expect(@address_purchase.errors.full_messages).to include('Phone number is invalid')
+      end
+        it "token が空では登録できないこと" do
         @address_purchase.token = nil
         @address_purchase.valid?
         expect(@address_purchase.errors.full_messages).to include("Token can't be blank")
