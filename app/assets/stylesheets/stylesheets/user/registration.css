@@ -11,7 +11,7 @@
 .form-wrap {
   width: 50%;
   background-color: white;
-  padding-bottom: 70px;
+  padding-bottom: 100px;
 }
 
 .form-header {
@@ -157,4 +157,17 @@
   color: #0099e8;
   text-align: right;
   cursor: pointer;
+}
+
+.register-blue-btn {
+  width: 100%;
+  background: blue;
+  border: 1px solid blue;
+  color: #fff;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  display: block;
+  margin-top: 30px;
+  text-align: center;
 }
