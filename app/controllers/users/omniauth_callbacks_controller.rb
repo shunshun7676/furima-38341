@@ -3,11 +3,11 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     authorization
-   end
+  end
   
    def google_oauth2
     authorization
-   end
+  end
   
    private
   
@@ -20,11 +20,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else 
       @sns_id = sns_info[:sns].id
      render template: 'devise/registrations/new'
-    end
-    end
+   end
+end
 
-  
-  
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 
